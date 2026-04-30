@@ -1,0 +1,39 @@
+---
+title: Optimize Memory Management
+description: Optimizes memory management settings for better performance
+actions:
+  # Optimize working set manager
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'LargeSystemCache'
+    data: '1'
+    type: REG_DWORD
+
+  # Enable memory compression
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'MemoryCompression'
+    data: '1'
+    type: REG_DWORD
+
+  # Optimize page file usage
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'ClearPageFileAtShutdown'
+    data: '0'
+    type: REG_DWORD
+
+  # Reduce memory reserved for system
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control'
+    value: 'SystemRootDrive'
+    data: '%SystemDrive%'
+    type: REG_SZ
+    ignoreErrors: true
+
+  # Disable memory dumps for better performance
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl'
+    value: 'CrashDumpEnabled'
+    data: '0'
+    type: REG_DWORD

@@ -1,0 +1,21 @@
+---
+title: Disable Superfetch (Prefetcher)
+description: Disables Superfetch and Prefetch to reduce memory usage and I/O operations
+actions:
+  # Disable Superfetch (PrefetchType = 0)
+  # 0 = Disabled, 1 = Applications only, 2 = Boot only, 3 = Applications and boot
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters'
+    value: 'EnablePrefetcher'
+    data: '0'
+    type: REG_DWORD
+
+  # Disable Boot Prefetch
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters'
+    value: 'EnableBootTrace'
+    data: '0'
+    type: REG_DWORD
+  
+  # Disable Superfetch service
+  - !service: {name: 'SysMain', operation: disable, ignoreErrors: true}

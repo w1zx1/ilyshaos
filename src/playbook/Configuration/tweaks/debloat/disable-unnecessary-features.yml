@@ -1,0 +1,42 @@
+---
+title: Disable Unnecessary Features
+description: Disables unnecessary Windows features to reduce bloat and improve performance
+actions:
+  # Disable optional features that are not needed
+  - !powerShell:
+    command: |
+      $features = @(
+        'SNMP',
+        'SimpleTCP',
+        'TFTP',
+        'TelnetClient',
+        'Printing-Foundation-Features',
+        'Printing-Foundation-InternetPrinting-Client',
+        'LPR-PortMonitor',
+        'HostGuardian'
+      )
+      foreach ($feature in $features) {
+        try {
+          Disable-WindowsOptionalFeature -Online -FeatureName $feature -NoRestart -ErrorAction SilentlyContinue
+          Write-Output "Disabled feature: $feature"
+        } catch {
+          Write-Output "Could not disable feature: $feature"
+        }
+      }
+    wait: true
+    ignoreErrors: true
+    exeDir: true
+
+  # Disable Tablet Input Panel
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\TabletTip\1.7'
+    value: 'TipStartMode'
+    data: '0'
+    type: REG_DWORD
+
+  # Disable handwriting
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\InputPersonalization'
+    value: 'RestrictImplicitInkCollection'
+    data: '1'
+    type: REG_DWORD

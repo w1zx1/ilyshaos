@@ -1,0 +1,55 @@
+---
+title: Optimize Network Settings
+description: Optimizes network stack for better performance and responsiveness
+actions:
+  # Optimize TCP window size
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    value: 'TcpWindowSize'
+    data: '65535'
+    type: REG_DWORD
+
+  # Disable TCP timestamps for lower latency
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    value: 'Tcp1323Opts'
+    data: '0'
+    type: REG_DWORD
+
+  # Optimize TCP handshake
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    value: 'MaxFreeTcbs'
+    data: '16000'
+    type: REG_DWORD
+    ignoreErrors: true
+
+  # Enable TCP Fast Open
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    value: 'EnableTCFastOpen'
+    data: '1'
+    type: REG_DWORD
+    ignoreErrors: true
+
+  # Disable NetBIOS over TCP/IP
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters'
+    value: 'NetbiosOptions'
+    data: '2'
+    type: REG_DWORD
+
+  # Optimize RTO (Retransmission Timeout)
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    value: 'TcpMaxDataRetransmissions'
+    data: '3'
+    type: REG_DWORD
+    ignoreErrors: true
+
+  # Increase port availability
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    value: 'MaxUserPort'
+    data: '65534'
+    type: REG_DWORD

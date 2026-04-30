@@ -1,0 +1,82 @@
+---
+title: Aggressive App Debloat
+description: Removes bloatware apps more aggressively to free up space and resources
+actions:
+  # Remove Microsoft Edge
+  - !powerShell:
+    command: |
+      $msedge = Get-ChildItem -Path "$env:ProgramFiles\Microsoft" -Filter "Edge" -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName -First 1
+      if ($msedge) {
+        Remove-Item -Path $msedge -Force -Recurse -ErrorAction SilentlyContinue
+        Write-Output "Removed Microsoft Edge"
+      }
+    wait: true
+    ignoreErrors: true
+    exeDir: true
+
+  # Remove Microsoft Store (AppXPackage)
+  - !powerShell:
+    command: |
+      try {
+        Get-AppxPackage -Name "Microsoft.WindowsStore" -ErrorAction SilentlyContinue | Remove-AppxPackage -ErrorAction SilentlyContinue
+        Write-Output "Removed Windows Store"
+      } catch {
+        Write-Output "Could not remove Windows Store"
+      }
+    wait: true
+    ignoreErrors: true
+    exeDir: true
+
+  # Remove Xbox app
+  - !powerShell:
+    command: |
+      try {
+        Get-AppxPackage -Name "Microsoft.XboxApp" -ErrorAction SilentlyContinue | Remove-AppxPackage -ErrorAction SilentlyContinue
+        Get-AppxPackage -Name "Microsoft.XboxGameOverlay" -ErrorAction SilentlyContinue | Remove-AppxPackage -ErrorAction SilentlyContinue
+        Get-AppxPackage -Name "Microsoft.XboxIdentityProvider" -ErrorAction SilentlyContinue | Remove-AppxPackage -ErrorAction SilentlyContinue
+        Write-Output "Removed Xbox apps"
+      } catch {
+        Write-Output "Could not remove Xbox apps"
+      }
+    wait: true
+    ignoreErrors: true
+    exeDir: true
+
+  # Remove OneNote
+  - !powerShell:
+    command: |
+      try {
+        Get-AppxPackage -Name "Microsoft.Office.OneNote" -ErrorAction SilentlyContinue | Remove-AppxPackage -ErrorAction SilentlyContinue
+        Write-Output "Removed OneNote"
+      } catch {
+        Write-Output "Could not remove OneNote"
+      }
+    wait: true
+    ignoreErrors: true
+    exeDir: true
+
+  # Remove Maps
+  - !powerShell:
+    command: |
+      try {
+        Get-AppxPackage -Name "Microsoft.WindowsMaps" -ErrorAction SilentlyContinue | Remove-AppxPackage -ErrorAction SilentlyContinue
+        Write-Output "Removed Maps"
+      } catch {
+        Write-Output "Could not remove Maps"
+      }
+    wait: true
+    ignoreErrors: true
+    exeDir: true
+
+  # Remove Weather
+  - !powerShell:
+    command: |
+      try {
+        Get-AppxPackage -Name "Microsoft.BingWeather" -ErrorAction SilentlyContinue | Remove-AppxPackage -ErrorAction SilentlyContinue
+        Write-Output "Removed Weather"
+      } catch {
+        Write-Output "Could not remove Weather"
+      }
+    wait: true
+    ignoreErrors: true
+    exeDir: true

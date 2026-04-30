@@ -83,10 +83,10 @@ function Set-ThemeMRU {
     if ([System.Environment]::OSVersion.Version.Build -ge 22000) {
         Stop-ThemeProcesses
         Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes" -Name "ThemeMRU" -Value "$((@(
-            "atlas-v0.4.x-dark.theme",
-            "atlas-v0.4.x-light.theme",
-            "atlas-v0.3.x-dark.theme",
-            "atlas-v0.3.x-light.theme",
+            "ilyshaos-dark.theme",
+            "ilyshaos-dark-light.theme",
+            "ilyshaos-dark-classic.theme",
+            "ilyshaos-dark-classic-light.theme",
             "dark.theme",
             "aero.theme"
         ) | ForEach-Object { "$windir\resources\Themes\$_" }) -join ';');" -Type String -Force

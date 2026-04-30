@@ -1,0 +1,41 @@
+---
+title: Aggressive Service Disabling
+description: Disables many non-essential services to free up resources and improve boot time
+actions:
+  # Storage services
+  - !service: {name: 'StorSvc', operation: disable, ignoreErrors: true}  # Storage service
+  - !service: {name: 'DiskDefragmenter', operation: disable, ignoreErrors: true}  # Defrag service
+  - !service: {name: 'defragsvc', operation: disable, ignoreErrors: true}  # Optimize drives
+
+  # Update services  
+  - !service: {name: 'UsoSvc', operation: disable, ignoreErrors: true}  # Update Orchestrator Service
+  - !service: {name: 'BITS', operation: disable, ignoreErrors: true}  # Background Intelligent Transfer Service
+
+  # Remote services
+  - !service: {name: 'RpcSs', operation: disable, ignoreErrors: true}  # RPC Service (use with caution)
+  - !service: {name: 'RemoteRegistry', operation: disable, ignoreErrors: true}  # Remote Registry
+
+  # Wireless services
+  - !service: {name: 'WlanSvc', operation: disable, ignoreErrors: true}  # WLAN Service
+  - !service: {name: 'WwanSvc', operation: disable, ignoreErrors: true}  # WWAN Service
+
+  # Bluetooth
+  - !service: {name: 'bthserv', operation: disable, ignoreErrors: true}  # Bluetooth service
+
+  # Audio (optional - remove if you need sound)
+  - !service: {name: 'AudioEndpointBuilder', operation: disable, ignoreErrors: true}  # Audio Device Graph Isolation
+  - !service: {name: 'Audiosrv', operation: disable, ignoreErrors: true}  # Windows Audio
+
+  # Print services
+  - !service: {name: 'spooler', operation: disable, ignoreErrors: true}  # Print Spooler
+  - !service: {name: 'PrintNotify', operation: disable, ignoreErrors: true}  # Printer Extensions and Notifications
+
+  # Scanner services
+  - !service: {name: 'WiaRpc', operation: disable, ignoreErrors: true}  # Still Image Acquisition Events
+
+  # Sensor services
+  - !service: {name: 'SensrSvc', operation: disable, ignoreErrors: true}  # Sensor Service
+  - !service: {name: 'SensorDataService', operation: disable, ignoreErrors: true}  # Sensor Data Service
+
+  # Mobile broadband
+  - !service: {name: 'lmhosts', operation: disable, ignoreErrors: true}  # TCP/IP NetBIOS Helper

@@ -1,0 +1,35 @@
+---
+title: Optimize Disk I/O Performance
+description: Optimizes disk I/O operations for better overall system performance
+actions:
+  # Disable 8.3 filename creation globally
+  - !run: {exe: 'fsutil', args: 'behavior set disable8dot3 1'}
+
+  # Disable last access time updates
+  - !run: {exe: 'fsutil', args: 'behavior set disablelastaccess 1'}
+
+  # Enable NTFS compression
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\MrxSmb10'
+    value: 'Start'
+    data: '4'
+    type: REG_DWORD
+    ignoreErrors: true
+
+  # Optimize NTFS access times
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\FileSystem'
+    value: 'NtfsDisableLastAccessUpdate'
+    data: '1'
+    type: REG_DWORD
+
+  # Enable TRIM for SSDs
+  - !run: {exe: 'fsutil', args: 'behavior query DisableDeleteNotify'}
+
+  # Optimize file system cache
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'IoPageLockLimit'
+    data: '0'
+    type: REG_DWORD
+    ignoreErrors: true

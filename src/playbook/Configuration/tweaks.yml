@@ -54,6 +54,16 @@ actions:
   - !task: {path: 'tweaks\performance\disable-fth.yml'}
   - !task: {path: 'tweaks\performance\disable-sleep-study.yml'}
   - !task: {path: 'tweaks\performance\respect-power-modes-search.yml'}
+  # Ilysha-OS Advanced Performance Optimizations
+  - !task: {path: 'tweaks\performance\disable-superfetch.yml'}
+  - !task: {path: 'tweaks\performance\optimize-memory.yml'}
+  - !task: {path: 'tweaks\performance\disable-indexing.yml'}
+  - !task: {path: 'tweaks\performance\optimize-disk-io.yml'}
+  - !task: {path: 'tweaks\performance\aggressive-service-disable.yml'}
+  - !task: {path: 'tweaks\performance\optimize-network.yml'}
+  - !task: {path: 'tweaks\performance\disable-notifications.yml'}
+  - !task: {path: 'tweaks\performance\optimize-processor.yml'}
+  - !task: {path: 'tweaks\performance\optimize-startup.yml'}
 
 
   # -------------------------------------------------------------------------- #
@@ -129,6 +139,8 @@ actions:
   - !task: {path: 'tweaks\privacy\telemetry\disable-dotnet-cli-telemetry.yml'}
   - !task: {path: 'tweaks\privacy\telemetry\disable-input-telemetry.yml'}
   - !task: {path: 'tweaks\privacy\telemetry\disallow-data-collection.yml'}
+  # Ilysha-OS Aggressive Telemetry Removal
+  - !task: {path: 'tweaks\privacy\aggressive-telemetry-removal.yml'}
 
 
 
@@ -323,6 +335,9 @@ actions:
   - !task: {path: 'tweaks\debloat\disable-scheduled-tasks.yml'}
   - !task: {path: 'tweaks\debloat\hide-unused-security-pages.yml'}
   - !task: {path: 'tweaks\debloat\config-storage-sense.yml'}
+  # Ilysha-OS Aggressive Debloat
+  - !task: {path: 'tweaks\debloat\disable-unnecessary-features.yml'}
+  - !task: {path: 'tweaks\debloat\aggressive-app-debloat.yml'}
 
 
 

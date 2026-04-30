@@ -1,0 +1,38 @@
+---
+title: Optimize System Startup
+description: Optimizes system startup process by disabling unnecessary startup items
+actions:
+  # Disable auto-start of unnecessary services at boot
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run'
+    value: 'OneDrive'
+    operation: delete
+    ignoreErrors: true
+
+  # Disable Cortana startup
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
+    value: 'CortanaEnabled'
+    data: '0'
+    type: REG_DWORD
+
+  # Disable thumbnail cache
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
+    value: 'DisableThumbnailCache'
+    data: '1'
+    type: REG_DWORD
+
+  # Disable background app refresh
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications'
+    value: 'GlobalUserDisabled'
+    data: '1'
+    type: REG_DWORD
+
+  # Set SSD alignment optimization
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Defragsvc\Parameters'
+    value: 'SchedDefragEnabled'
+    data: '0'
+    type: REG_DWORD
