@@ -1,29 +1,33 @@
 ---
 title: Disable Notifications and Alerts
 description: Disables various notifications and toast alerts to free up resources
+
 actions:
   # Disable notification service
-  - !service: {name: 'WpnService', operation: disable, ignoreErrors: true}  # Windows Push Notifications Service
+  - !service
+    name: "WpnService"
+    operation: disable
+    ignoreErrors: true
 
   # Disable toast notifications
   - !registryValue:
-    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer'
-    value: 'DisableNotificationCenter'
-    data: '1'
-    type: REG_DWORD
+      path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer'
+      value: 'DisableNotificationCenter'
+      data: '1'
+      type: REG_DWORD
 
   # Disable app notifications
   - !registryValue:
-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings'
-    value: 'NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND'
-    data: '0'
-    type: REG_DWORD
-    ignoreErrors: true
+      path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings'
+      value: 'NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND'
+      data: '0'
+      type: REG_DWORD
+      ignoreErrors: true
 
   # Disable notification icons
   - !registryValue:
-    path: 'HKCU\Control Panel\Notifications\IM'
-    value: 'Show'
-    data: '0'
-    type: REG_DWORD
-    ignoreErrors: true
+      path: 'HKCU\Control Panel\Notifications\IM'
+      value: 'Show'
+      data: '0'
+      type: REG_DWORD
+      ignoreErrors: true
