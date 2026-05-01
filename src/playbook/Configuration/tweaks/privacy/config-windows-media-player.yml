@@ -17,4 +17,8 @@ actions:
     type: REG_DWORD
 
     # Disable Windows Media Player diagnostics
-    - !registryValue: {value: 'UsageTracking', data: 0, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\MediaPlayer\Preferences'
+    value: 'UsageTracking'
+    data: '0'
+    type: REG_DWORD

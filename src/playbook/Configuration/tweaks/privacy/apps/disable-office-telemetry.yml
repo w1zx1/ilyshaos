@@ -13,4 +13,8 @@ actions:
     data: '3'
     type: REG_DWORD
     # Customer Experience Program
-    - !registryValue: {value: 'qmenable', data: 0, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKCU\Software\Policies\Microsoft\office\16.0\common'
+    value: 'qmenable'
+    data: '0'
+    type: REG_DWORD

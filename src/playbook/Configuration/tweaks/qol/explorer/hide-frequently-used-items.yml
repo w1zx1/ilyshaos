@@ -31,4 +31,8 @@ actions:
     data: '1'
     type: REG_DWORD
     # Do not display or track items in jump lists from remote locations
-    - !registryValue: {value: 'NoRemoteDestinations', data: 1, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer'
+    value: 'NoRemoteDestinations'
+    data: '1'
+    type: REG_DWORD

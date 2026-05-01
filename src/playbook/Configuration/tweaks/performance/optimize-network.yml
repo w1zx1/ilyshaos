@@ -48,4 +48,8 @@ actions:
     ignoreErrors: true
 
   # Increase port availability
-    - !registryValue: {value: 'MaxUserPort', data: 65534, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    value: 'MaxUserPort'
+    data: '65534'
+    type: REG_DWORD

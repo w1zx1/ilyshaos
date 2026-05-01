@@ -17,4 +17,8 @@ actions:
     value: ''
     data: 'powerscheme'
     type: REG_SZ
-    - !registryValue: {value: 'FriendlyTypeName', data: 'Power Scheme', type: REG_SZ}
+  - !registryValue:
+    path: 'HKCR\.pow'
+    value: 'FriendlyTypeName'
+    data: 'Power Scheme'
+    type: REG_SZ

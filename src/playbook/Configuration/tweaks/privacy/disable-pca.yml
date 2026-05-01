@@ -27,4 +27,8 @@ actions:
     value: 'DisablePCA'
     data: '1'
     type: REG_DWORD
-    - !registryValue: {value: 'DisableUAR', data: 1, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    value: 'DisableUAR'
+    data: '1'
+    type: REG_DWORD

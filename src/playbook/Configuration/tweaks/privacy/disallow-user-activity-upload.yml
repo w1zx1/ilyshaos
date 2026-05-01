@@ -7,4 +7,8 @@ actions:
     value: 'UploadUserActivities'
     data: '0'
     type: REG_DWORD
-    - !registryValue: {value: 'PublishUserActivities', data: 0, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    value: 'PublishUserActivities'
+    data: '0'
+    type: REG_DWORD

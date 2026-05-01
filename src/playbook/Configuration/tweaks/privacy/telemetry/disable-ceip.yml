@@ -7,4 +7,8 @@ actions:
     value: 'CEIPEnable'
     data: '0'
     type: REG_DWORD
-    - !registryValue: {value: 'CEIPEnable', data: 0, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\SQMClient\Windows'
+    value: 'CEIPEnable'
+    data: '0'
+    type: REG_DWORD

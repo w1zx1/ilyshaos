@@ -10,7 +10,10 @@ actions:
 
     # A/B testing usage reports
   - !scheduledTask: {path: '\Microsoft\Windows\Flighting\FeatureConfig\UsageDataReporting', operation: disable, ignoreErrors: true}
-  - !registryValue: {path: 'HKLM\System\CurrentControlSet\Control\Ubpm', value: 'CriticalMaintenance_UsageDataReporting', operation: delete}
+  - !registryValue:
+    path: 'HKLM\System\CurrentControlSet\Control\Ubpm'
+    value: 'CriticalMaintenance_UsageDataReporting' # Remove from automatic maintenance
+    operation: delete
 
   # -------------------------------------------------------------------------------------
   # Here are the scheduled tasks that are currently commented as they're under review.

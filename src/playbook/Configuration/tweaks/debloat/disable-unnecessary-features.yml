@@ -35,4 +35,8 @@ actions:
     type: REG_DWORD
 
   # Disable handwriting
-    - !registryValue: {value: 'RestrictImplicitInkCollection', data: 1, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\TabletTip\1.7'
+    value: 'RestrictImplicitInkCollection'
+    data: '1'
+    type: REG_DWORD

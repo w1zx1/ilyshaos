@@ -17,4 +17,8 @@ actions:
     value: ''
     data: 'Windows PowerShell Script'
     type: REG_SZ
-    - !registryValue: {value: 'FriendlyTypeName', data: 'Windows PowerShell Script', type: REG_SZ}
+  - !registryValue:
+    path: 'HKCR\Microsoft.PowerShellScript.1'
+    value: 'FriendlyTypeName'
+    data: 'Windows PowerShell Script'
+    type: REG_SZ

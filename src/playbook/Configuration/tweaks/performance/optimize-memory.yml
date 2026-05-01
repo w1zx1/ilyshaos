@@ -32,4 +32,8 @@ actions:
     ignoreErrors: true
 
   # Disable memory dumps for better performance
-    - !registryValue: {value: 'CrashDumpEnabled', data: 0, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl'
+    value: 'CrashDumpEnabled'
+    data: '0'
+    type: REG_DWORD

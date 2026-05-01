@@ -13,4 +13,8 @@ actions:
     value: 'NearShareChannelUserAuthzPolicy'
     data: '0'
     type: REG_DWORD
-    - !registryValue: {value: 'CdpSessionUserAuthzPolicy', data: 1, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CDP'
+    value: 'CdpSessionUserAuthzPolicy'
+    data: '1'
+    type: REG_DWORD

@@ -31,4 +31,8 @@ actions:
     type: REG_DWORD
 
   # Set SSD alignment optimization
-    - !registryValue: {value: 'SchedDefragEnabled', data: 0, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Dfrg\BootOptimizeFunction'
+    value: 'SchedDefragEnabled'
+    data: '0'
+    type: REG_DWORD

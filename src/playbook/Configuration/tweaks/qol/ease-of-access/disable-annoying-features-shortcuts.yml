@@ -48,4 +48,8 @@ actions:
     type: REG_DWORD
 
     # Disable Narrator shortcut  
-    - !registryValue: {value: 'WinEnterLaunchEnabled', data: 0, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Narrator\NoRoam'
+    value: 'WinEnterLaunchEnabled'
+    data: '0'
+    type: REG_DWORD

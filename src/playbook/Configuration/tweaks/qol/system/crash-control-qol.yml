@@ -22,4 +22,8 @@ actions:
     value: 'DisplayParameters'
     data: '1'
     type: REG_DWORD
-    - !registryValue: {value: 'DeviceDumpEnabled', data: 0, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl\StorageTelemetry'
+    value: 'DeviceDumpEnabled'
+    data: '0'
+    type: REG_DWORD

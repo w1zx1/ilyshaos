@@ -52,4 +52,8 @@ actions:
     value: 'EnableAeroPeek'
     data: '0'
     type: REG_DWORD
-    - !registryValue: {value: 'AlwaysHibernateThumbnails', data: 0, type: REG_DWORD}
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\DWM'
+    value: 'AlwaysHibernateThumbnails'
+    data: '0'
+    type: REG_DWORD

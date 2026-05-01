@@ -27,4 +27,9 @@ actions:
   - !run: {exe: 'fsutil', args: 'behavior query DisableDeleteNotify'}
 
   # Optimize file system cache
-    - !registryValue: {value: 'IoPageLockLimit', data: 0, type: REG_DWORD, ignoreErrors: true}
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'IoPageLockLimit'
+    data: '0'
+    type: REG_DWORD
+    ignoreErrors: true

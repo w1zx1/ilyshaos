@@ -1,18 +1,18 @@
 ---
 title: Add Theme
-description: Adds and sets the Ilysha-OS themes by default
+description: Adds and sets the Atlas themes by default
 actions:
     # Apply theme file and set recent themes
   - !powerShell:
     command: |
       .\AtlasModules\initPowerShell.ps1
-      Set-Theme -Path """$([Environment]::GetFolderPath('Windows'))\Resources\Themes\ilyshaos-dark.theme"""
+      Set-Theme -Path """$([Environment]::GetFolderPath('Windows'))\Resources\Themes\atlas-v0.4.x-dark.theme"""
       Set-ThemeMRU
     wait: true
     exeDir: true
     runas: currentUserElevated
 
-    # Applies Ilysha-OS lockscreen background
+    # Applies Atlas lockscreen background
     # Also disables fun facts, tips, tricks, and more on lockscreen - only on Enterprise/Education
   - !registryValue:
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization'
@@ -39,5 +39,9 @@ actions:
     wait: true
     runas: currentUserElevated
 
-    # Set Ilysha-OS theme as default for new users
-    - !registryValue: {value: 'ThemeFile', data: '%windir%\\Resources\\Themes\\ilyshaos-dark.theme', type: REG_SZ}
+    # Set Atlas theme as default for new users
+  - !registryValue:
+    path: 'HKCU\Software\Policies\Microsoft\Windows\Personalization'
+    value: 'ThemeFile'
+    data: '%windir%\Resources\Themes\atlas-v0.4.x-dark.theme'
+    type: REG_SZ
