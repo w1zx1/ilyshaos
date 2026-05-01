@@ -5,7 +5,7 @@ param (
 	[switch]$NoPassword,
 	[ValidateSet('Dependencies', 'Requirements', 'WinverRequirement', 'Verification', IgnoreCase = $true)]
 	[array]$Removals,
-	[string]$FileName = "Ilysha OS Cooler 0.6.6.0.apbx"
+	[string]$FileName = "Ilysha OS Fixed Build $(Get-Date -Format 'yyyy-MM-dd')"
 )
 
 $removals | % { Set-Variable -Name "remove$_" -Value $true }
