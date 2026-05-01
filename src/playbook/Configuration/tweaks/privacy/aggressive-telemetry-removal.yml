@@ -3,17 +3,17 @@ title: Aggressive Telemetry Removal
 description: Removes and disables all remaining telemetry services and components
 actions:
   # Disable DiagTrack
-  - !service: {name: 'DiagTrack', operation: disable, ignoreErrors: true}  # Diagnostic Tracking Service
-  - !service: {name: 'dmwappushservice', operation: disable, ignoreErrors: true}  # Device Management Wireless Application Protocol
+  - !service: {name: 'DiagTrack', operation: change, startup: 4, ignoreErrors: true}  # Diagnostic Tracking Service
+  - !service: {name: 'dmwappushservice', operation: change, startup: 4, ignoreErrors: true}  # Device Management Wireless Application Protocol
   
   # Disable Connected User Experiences and Telemetry
-  - !service: {name: 'ConnectedUserExperienceAndTelemetry', operation: disable, ignoreErrors: true}
+  - !service: {name: 'ConnectedUserExperienceAndTelemetry', operation: change, startup: 4, ignoreErrors: true}
   
   # Disable OneSync
-  - !service: {name: 'OneSyncSvc', operation: disable, ignoreErrors: true}
+  - !service: {name: 'OneSyncSvc', operation: change, startup: 4, ignoreErrors: true}
   
   # Disable Activity History
-  - !service: {name: 'ActivityHistoryService', operation: disable, ignoreErrors: true}
+  - !service: {name: 'ActivityHistoryService', operation: change, startup: 4, ignoreErrors: true}
   
   # Disable Remote Telemetry
   - !registryValue: {path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy', value: 'LetAppsAccessDiagnostics', data: '2', type: REG_DWORD, ignoreErrors: true}

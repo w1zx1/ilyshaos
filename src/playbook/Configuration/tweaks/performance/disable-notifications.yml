@@ -4,7 +4,7 @@ description: Disables various notifications and toast alerts to free up resource
 
 actions:
   # Disable notification service
-  - !service: {name: 'WpnService', operation: disable, ignoreErrors: true}
+  - !service: {name: 'WpnService', operation: change, startup: 4, ignoreErrors: true}
 
   # Disable toast notifications
   - !registryValue: {path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', data: '1', type: REG_DWORD}

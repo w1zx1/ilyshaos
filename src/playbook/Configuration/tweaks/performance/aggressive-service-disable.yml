@@ -4,30 +4,30 @@ description: Disables many non-essential services to free up resources and impro
 
 actions:
   # Storage services
-  - !service: {name: 'StorSvc', operation: disable, ignoreErrors: true}
-  - !service: {name: 'DiskDefragmenter', operation: disable, ignoreErrors: true}
-  - !service: {name: 'defragsvc', operation: disable, ignoreErrors: true}
+  - !service: {name: 'StorSvc', operation: change, startup: 4, ignoreErrors: true}
+  - !service: {name: 'DiskDefragmenter', operation: change, startup: 4, ignoreErrors: true}
+  - !service: {name: 'defragsvc', operation: change, startup: 4, ignoreErrors: true}
   # Update services  
-  - !service: {name: 'UsoSvc', operation: disable, ignoreErrors: true}
-  - !service: {name: 'BITS', operation: disable, ignoreErrors: true}
+  - !service: {name: 'UsoSvc', operation: change, startup: 4, ignoreErrors: true}
+  - !service: {name: 'BITS', operation: change, startup: 4, ignoreErrors: true}
   # Remote services
-  - !service: {name: 'RpcSs', operation: disable, ignoreErrors: true}
-  - !service: {name: 'RemoteRegistry', operation: disable, ignoreErrors: true}
+  - !service: {name: 'RpcSs', operation: change, startup: 4, ignoreErrors: true}
+  - !service: {name: 'RemoteRegistry', operation: change, startup: 4, ignoreErrors: true}
   # Wireless services
-  - !service: {name: 'WlanSvc', operation: disable, ignoreErrors: true}
-  - !service: {name: 'WwanSvc', operation: disable, ignoreErrors: true}
+  - !service: {name: 'WlanSvc', operation: change, startup: 4, ignoreErrors: true}
+  - !service: {name: 'WwanSvc', operation: change, startup: 4, ignoreErrors: true}
   # Bluetooth
-  - !service: {name: 'bthserv', operation: disable, ignoreErrors: true}
+  - !service: {name: 'bthserv', operation: change, startup: 4, ignoreErrors: true}
   # Audio (caution: may break sound)
-  - !service: {name: 'AudioEndpointBuilder', operation: disable, ignoreErrors: true}
-  - !service: {name: 'Audiosrv', operation: disable, ignoreErrors: true}
+  - !service: {name: 'AudioEndpointBuilder', operation: change, startup: 4, ignoreErrors: true}
+  - !service: {name: 'Audiosrv', operation: change, startup: 4, ignoreErrors: true}
   # Print services
-  - !service: {name: 'spooler', operation: disable, ignoreErrors: true}
-  - !service: {name: 'PrintNotify', operation: disable, ignoreErrors: true}
+  - !service: {name: 'spooler', operation: change, startup: 4, ignoreErrors: true}
+  - !service: {name: 'PrintNotify', operation: change, startup: 4, ignoreErrors: true}
   # Scanner
-  - !service: {name: 'WiaRpc', operation: disable, ignoreErrors: true}
+  - !service: {name: 'WiaRpc', operation: change, startup: 4, ignoreErrors: true}
   # Sensor services
-  - !service: {name: 'SensrSvc', operation: disable, ignoreErrors: true}
-  - !service: {name: 'SensorDataService', operation: disable, ignoreErrors: true}
+  - !service: {name: 'SensrSvc', operation: change, startup: 4, ignoreErrors: true}
+  - !service: {name: 'SensorDataService', operation: change, startup: 4, ignoreErrors: true}
   # Other
-  - !service: {name: 'lmhosts', operation: disable, ignoreErrors: true}
+  - !service: {name: 'lmhosts', operation: change, startup: 4, ignoreErrors: true}
