@@ -4,30 +4,13 @@ description: Disables Windows Search indexing to reduce CPU and disk usage
 
 actions:
   # Disable Windows Search service
-  - !service
-    name: "WSearch"
-    operation: disable
-    ignoreErrors: true
+  - !service: {name: 'WSearch', operation: disable, ignoreErrors: true}
   
   # Disable indexing
-  - !registryValue:
-      path: 'HKLM\SYSTEM\CurrentControlSet\Services\WSearch'
-      value: 'Start'
-      data: '4'
-      type: REG_DWORD
+  - !registryValue: {path: 'HKLM\SYSTEM\CurrentControlSet\Services\WSearch', value: 'Start', data: '4', type: REG_DWORD}
 
   # Disable search history
-  - !registryValue:
-      path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
-      value: 'CortanaConsent'
-      data: '0'
-      type: REG_DWORD
-      ignoreErrors: true
+  - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search', value: 'CortanaConsent', data: '0', type: REG_DWORD, ignoreErrors: true}
 
   # Disable search history logging
-  - !registryValue:
-      path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings'
-      value: 'IsAADAccount'
-      data: '0'
-      type: REG_DWORD
-      ignoreErrors: true
+  - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings', value: 'IsAADAccount', data: '0', type: REG_DWORD, ignoreErrors: true}

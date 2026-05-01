@@ -16,27 +16,13 @@ actions:
   - !service: {name: 'ActivityHistoryService', operation: disable, ignoreErrors: true}
   
   # Disable Remote Telemetry
-  - !registryValue:
-    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'
-    value: 'LetAppsAccessDiagnostics'
-    data: '2'
-    type: REG_DWORD
-    ignoreErrors: true
+  - !registryValue: {path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy', value: 'LetAppsAccessDiagnostics', data: '2', type: REG_DWORD, ignoreErrors: true}
   
   # Disable Error Reporting
-  - !registryValue:
-    path: 'HKLM\SYSTEM\CurrentControlSet\Services\wercplsupport'
-    value: 'Start'
-    data: '4'
-    type: REG_DWORD
-    ignoreErrors: true
+  - !registryValue: {path: 'HKLM\SYSTEM\CurrentControlSet\Services\wercplsupport', value: 'Start', data: '4', type: REG_DWORD, ignoreErrors: true}
 
   # Disable Microsoft telemetry endpoints
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
-    value: 'AllowDiagnosticData'
-    data: '0'
-    type: REG_DWORD
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection', value: 'AllowDiagnosticData', data: '0', type: REG_DWORD}
 
   # Disable telemetry scheduled tasks
   - !scheduledTask: {path: '\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser', operation: disable, ignoreErrors: true}
