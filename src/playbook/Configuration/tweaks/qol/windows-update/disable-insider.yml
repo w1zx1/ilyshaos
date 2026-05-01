@@ -22,8 +22,4 @@ actions:
     value: 'EnableExperimentation'
     data: '0'
     type: REG_DWORD
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Microsoft\WindowsSelfHost\UI\Visibility'
-    value: 'HideInsiderPage'
-    data: '1'
-    type: REG_DWORD
+    - !registryValue: {value: 'HideInsiderPage', data: 1, type: REG_DWORD}

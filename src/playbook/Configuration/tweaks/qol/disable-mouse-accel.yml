@@ -12,8 +12,4 @@ actions:
     value: 'MouseThreshold1'
     data: '0'
     type: REG_SZ
-  - !registryValue:
-    path: 'HKCU\Control Panel\Mouse'
-    value: 'MouseThreshold2'
-    data: '0'
-    type: REG_SZ
+    - !registryValue: {value: 'MouseThreshold2', data: 0, type: REG_SZ}

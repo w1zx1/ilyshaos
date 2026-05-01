@@ -7,8 +7,4 @@ actions:
     value: 'ItemName'
     data: '%windir%\System32\acppage.dll,-6002'
     type: REG_EXPAND_SZ
-  - !registryValue:
-    path: 'HKCR\.bat\ShellNew'
-    value: 'NullFile'
-    data: ''
-    type: REG_SZ
+    - !registryValue: {value: 'NullFile', data: '', type: REG_SZ}

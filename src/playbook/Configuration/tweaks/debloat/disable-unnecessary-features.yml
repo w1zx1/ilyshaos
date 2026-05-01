@@ -35,8 +35,4 @@ actions:
     type: REG_DWORD
 
   # Disable handwriting
-  - !registryValue:
-    path: 'HKCU\SOFTWARE\Microsoft\InputPersonalization'
-    value: 'RestrictImplicitInkCollection'
-    data: '1'
-    type: REG_DWORD
+    - !registryValue: {value: 'RestrictImplicitInkCollection', data: 1, type: REG_DWORD}

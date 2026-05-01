@@ -67,8 +67,4 @@ actions:
     value: 'ThisPCPolicy'
     data: Hide
     type: REG_SZ
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag'
-    value: 'ThisPCPolicy'
-    data: Hide
-    type: REG_SZ
+    - !registryValue: {value: 'ThisPCPolicy', data: 'Hide', type: REG_SZ}

@@ -22,8 +22,4 @@ actions:
     value: 'MSTakeNoAction'
     data: ''
     type: REG_NONE
-  - !registryValue:
-    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\UserChosenExecuteHandlers\StorageOnArrival'
-    value: 'MSTakeNoAction'
-    data: ''
-    type: REG_NONE
+    - !registryValue: {value: 'MSTakeNoAction', data: '', type: REG_NONE}

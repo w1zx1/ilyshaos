@@ -13,8 +13,4 @@ actions:
     data: '0'
     type: REG_DWORD
     # Disable visual warning for sounds in ease of access
-  - !registryValue:
-    path: 'HKCU\Control Panel\Accessibility\SoundSentry'
-    value: 'WindowsEffect'
-    data: '0'
-    type: REG_SZ
+    - !registryValue: {value: 'WindowsEffect', data: 0, type: REG_SZ}

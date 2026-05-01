@@ -43,11 +43,5 @@ actions:
     data: ''
     type: REG_NONE
     builds: [ '>=22000' ]
-  - !registryValue:
-    path: 'HKCU\Control Panel\Quick Actions\Control Center\QuickActionsStateCapture'
-    value: 'Toggles'
-    data: 'Toggles,Microsoft.QuickAction.BlueLightReduction:false,Microsoft.QuickAction.Accessibility:false,Microsoft.QuickAction.ProjectL2:false'
-    type: REG_SZ
-    builds: [ '>=22000' ]
-
+    - !registryValue: {value: 'Toggles', data: 'Toggles,Microsoft.QuickAction.BlueLightReduction:false,Microsoft.QuickAction.Accessibility:false,Microsoft.QuickAction.ProjectL2:false', type: REG_SZ, builds: '['}
   - !run: {exe: 'explorer.exe', runas: 'currentUser', wait: false}

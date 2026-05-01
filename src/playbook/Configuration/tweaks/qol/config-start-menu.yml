@@ -39,8 +39,4 @@ actions:
 
     # Remove Personalized Website Recommendations from the Recommended section in the Start Menu
     # https://www.elevenforum.com/t/add-or-remove-recommended-websites-on-start-menu-in-windows-11.10667/
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer'
-    value: 'HideRecommendedPersonalizedSites'
-    data: '1'
-    type: REG_DWORD
+    - !registryValue: {value: 'HideRecommendedPersonalizedSites', data: 1, type: REG_DWORD}

@@ -7,8 +7,4 @@ actions:
     value: 'NoResolveSearch'
     data: '1'
     type: REG_DWORD
-  - !registryValue:
-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
-    value: 'NoResolveTrack'
-    data: '1'
-    type: REG_DWORD
+    - !registryValue: {value: 'NoResolveTrack', data: 1, type: REG_DWORD}

@@ -47,8 +47,4 @@ actions:
     value: 'AllowGameDVR'
     data: '0'
     type: REG_DWORD
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\ApplicationManagement\AllowGameDVR'
-    value: 'value'
-    data: '0'
-    type: REG_DWORD
+    - !registryValue: {value: 'value', data: 0, type: REG_DWORD}

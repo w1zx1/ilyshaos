@@ -15,8 +15,4 @@ actions:
   #   type: REG_DWORD
 
     # https://www.elevenforum.com/t/enable-or-disable-automatic-maintenance-to-wake-up-computer-in-windows-11.16690/
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance'
-    value: 'WakeUp'
-    data: '0'
-    type: REG_DWORD
+    - !registryValue: {value: 'WakeUp', data: 0, type: REG_DWORD}

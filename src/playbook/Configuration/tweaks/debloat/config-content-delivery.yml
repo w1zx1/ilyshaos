@@ -121,8 +121,4 @@ actions:
     value: 'SubscribedContent-338389Enabled'
     data: '0'
     type: REG_DWORD
-  - !registryValue:
-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
-    value: 'SoftLandingEnabled'
-    data: '0'
-    type: REG_DWORD
+    - !registryValue: {value: 'SoftLandingEnabled', data: 0, type: REG_DWORD}

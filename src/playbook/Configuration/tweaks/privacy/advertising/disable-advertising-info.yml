@@ -7,8 +7,4 @@ actions:
     value: 'Enabled'
     data: '0'
     type: REG_DWORD
-  - !registryValue:
-    path: 'HKLM\Software\Policies\Microsoft\Windows\AdvertisingInfo'
-    value: 'DisabledByGroupPolicy'
-    data: '1'
-    type: REG_DWORD
+    - !registryValue: {value: 'DisabledByGroupPolicy', data: 1, type: REG_DWORD}

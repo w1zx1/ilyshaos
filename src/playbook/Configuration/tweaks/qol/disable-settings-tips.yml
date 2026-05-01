@@ -7,8 +7,4 @@ actions:
     value: 'value'
     data: '0'
     type: REG_DWORD
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
-    value: 'AllowOnlineTips'
-    data: '0'
-    type: REG_DWORD
+    - !registryValue: {value: 'AllowOnlineTips', data: 0, type: REG_DWORD}

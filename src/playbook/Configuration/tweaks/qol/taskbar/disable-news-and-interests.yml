@@ -9,10 +9,5 @@ actions:
     value: 'EnableFeeds'
     data: '0'
     type: REG_DWORD
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Policies\Microsoft\Dsh'
-    value: 'AllowNewsAndInterests'
-    data: '0'
-    type: REG_DWORD
-
+    - !registryValue: {value: 'AllowNewsAndInterests', data: 0, type: REG_DWORD}
   - !run: {exe: 'explorer.exe', runas: 'currentUser', wait: false}

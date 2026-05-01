@@ -7,8 +7,4 @@ actions:
     value: 'DisablePagingExecutive'
     data: '1'
     type: REG_DWORD
-  - !registryValue:
-    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
-    value: 'DisablePageCombining'
-    data: '1'
-    type: REG_DWORD
+    - !registryValue: {value: 'DisablePageCombining', data: 1, type: REG_DWORD}

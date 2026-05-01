@@ -52,8 +52,4 @@ actions:
     type: REG_DWORD
 
   # Prevent Windows from sending an error report when a device driver requests additional software during installation
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings'
-    value: 'DisableSendRequestAdditionalSoftwareToWER'
-    data: '1'
-    type: REG_DWORD
+    - !registryValue: {value: 'DisableSendRequestAdditionalSoftwareToWER', data: 1, type: REG_DWORD}

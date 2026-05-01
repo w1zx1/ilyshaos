@@ -40,8 +40,4 @@ actions:
     runas: currentUserElevated
 
     # Set Ilysha-OS theme as default for new users
-  - !registryValue:
-    path: 'HKCU\Software\Policies\Microsoft\Windows\Personalization'
-    value: 'ThemeFile'
-    data: '%windir%\Resources\Themes\ilyshaos-dark.theme'
-    type: REG_SZ
+    - !registryValue: {value: 'ThemeFile', data: '%windir%\\Resources\\Themes\\ilyshaos-dark.theme', type: REG_SZ}

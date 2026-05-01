@@ -12,8 +12,4 @@ actions:
     value: 'Value'
     data: 'Deny'
     type: REG_SZ
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation'
-    value: 'Value'
-    data: 'Deny'
-    type: REG_SZ
+    - !registryValue: {value: 'Value', data: 'Deny', type: REG_SZ}

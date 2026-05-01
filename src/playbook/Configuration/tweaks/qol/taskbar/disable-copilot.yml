@@ -4,8 +4,4 @@ description: Disables Microsoft Copilot as it depends on Edge, as well it collec
 builds: [ '>=22000' ]
 actions:
     # Doesn't work with HKLM
-  - !registryValue:
-    path: 'HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot'
-    value: 'TurnOffWindowsCopilot'
-    data: '1'
-    type: REG_DWORD
+    - !registryValue: {value: 'TurnOffWindowsCopilot', data: 1, type: REG_DWORD}

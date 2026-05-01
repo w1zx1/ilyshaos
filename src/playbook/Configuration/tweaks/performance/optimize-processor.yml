@@ -13,13 +13,7 @@ actions:
     type: REG_DWORD
 
   # Disable processor parking
-  - !registryValue:
-    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583'
-    value: 'ACSettingIndex'
-    data: '0'
-    type: REG_DWORD
-    ignoreErrors: true
-
+    - !registryValue: {value: 'ACSettingIndex', data: 0, type: REG_DWORD, ignoreErrors: true}
   - !registryValue:
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583'
     value: 'DCSettingIndex'
@@ -28,9 +22,4 @@ actions:
     ignoreErrors: true
 
   # Disable processor idle state
-  - !registryValue:
-    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\5d76a2ca-e8c0-402f-a133-2ee6263ce6e7'
-    value: 'ACSettingIndex'
-    data: '0'
-    type: REG_DWORD
-    ignoreErrors: true
+    - !registryValue: {value: 'ACSettingIndex', data: 0, type: REG_DWORD, ignoreErrors: true}
