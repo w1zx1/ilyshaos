@@ -5,3 +5,8 @@
 </p>
 
 <h3 align="center">ilyshaos is a fork of Atlas OS, focused on speed, privacy, and cleanliness.</h3>
+
+<p align="center">
+  Aggressive optimizations that can break boot or core Windows services are disabled by default.
+  Use the Atlas folder for opt-in tweaks only if you know you need them.
+</p>

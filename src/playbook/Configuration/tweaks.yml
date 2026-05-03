@@ -59,7 +59,6 @@ actions:
   - !task: {path: 'tweaks\performance\optimize-memory.yml'}
   - !task: {path: 'tweaks\performance\disable-indexing.yml'}
   - !task: {path: 'tweaks\performance\optimize-disk-io.yml'}
-  - !task: {path: 'tweaks\performance\aggressive-service-disable.yml'}
   - !task: {path: 'tweaks\performance\optimize-network.yml'}
   - !task: {path: 'tweaks\performance\disable-notifications.yml'}
   - !task: {path: 'tweaks\performance\optimize-processor.yml'}
@@ -140,7 +139,8 @@ actions:
   - !task: {path: 'tweaks\privacy\telemetry\disable-input-telemetry.yml'}
   - !task: {path: 'tweaks\privacy\telemetry\disallow-data-collection.yml'}
   # Ilysha-OS Aggressive Telemetry Removal
-  - !task: {path: 'tweaks\privacy\aggressive-telemetry-removal.yml'}
+  # Disabled by default because it removes services that are useful for normal system diagnostics.
+  # - !task: {path: 'tweaks\privacy\aggressive-telemetry-removal.yml'}
 
 
 
@@ -336,8 +336,9 @@ actions:
   - !task: {path: 'tweaks\debloat\hide-unused-security-pages.yml'}
   - !task: {path: 'tweaks\debloat\config-storage-sense.yml'}
   # Ilysha-OS Aggressive Debloat
-  - !task: {path: 'tweaks\debloat\disable-unnecessary-features.yml'}
-  - !task: {path: 'tweaks\debloat\aggressive-app-debloat.yml'}
+  # Disabled by default to keep the OS closer to stock Windows.
+  # - !task: {path: 'tweaks\debloat\disable-unnecessary-features.yml'}
+  # - !task: {path: 'tweaks\debloat\aggressive-app-debloat.yml'}
 
 
 
@@ -351,9 +352,10 @@ actions:
   # -----------------------------------------------------
   - !writeStatus: {status: 'Running scripts'}
   - !task: {path: 'tweaks\scripts\script-file-associations.yml'}
-  - !task: {path: 'tweaks\scripts\script-core-isolation.yml'}
   - !task: {path: 'tweaks\scripts\script-mitigations.yml'}
-  - !task: {path: 'tweaks\scripts\script-devices.yml'}
+  # Core isolation and device disabling are now opt-in only.
+  # - !task: {path: 'tweaks\scripts\script-core-isolation.yml'}
+  # - !task: {path: 'tweaks\scripts\script-devices.yml'}
   - !task: {path: 'tweaks\scripts\script-backup2.yml'}
   - !task: {path: 'tweaks\scripts\script-clientcbs.yml'}
 
